@@ -1,4 +1,4 @@
-package ru.gb.my_first_crud;
+package sem2.my_first_crud.src.main.java.ru.gb.my_first_crud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,5 +9,4 @@ public class MyFirstCrudApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MyFirstCrudApplication.class, args);
 	}
-
 }

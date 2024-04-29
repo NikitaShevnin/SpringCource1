@@ -1,9 +1,9 @@
-package ru.gb.my_first_crud.repository;
+package sem2.my_first_crud.src.main.java.ru.gb.my_first_crud.repository;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
-import ru.gb.my_first_crud.model.User;
+import sem2.my_first_crud.src.main.java.ru.gb.my_first_crud.model.User;
 
 import java.util.List;
 
@@ -36,6 +36,8 @@ public class UserRepository {
         return  user;
     }
 
-    //public void deleteById(int id)
-    //"DELETE FROM userTable WHERE id=?"
+    public void deleteById(int id) {
+        String sql = "DELETE FROM userTable WHERE id = ?";
+        jdbc.update(sql, id);
+    }
 }

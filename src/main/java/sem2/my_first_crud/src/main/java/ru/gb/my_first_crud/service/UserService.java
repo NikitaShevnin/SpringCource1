@@ -1,8 +1,8 @@
-package ru.gb.my_first_crud.service;
+package sem2.my_first_crud.src.main.java.ru.gb.my_first_crud.service;
 
 import org.springframework.stereotype.Service;
-import ru.gb.my_first_crud.model.User;
-import ru.gb.my_first_crud.repository.UserRepository;
+import sem2.my_first_crud.src.main.java.ru.gb.my_first_crud.model.User;
+import sem2.my_first_crud.src.main.java.ru.gb.my_first_crud.repository.UserRepository;
 
 import java.util.List;
 
@@ -22,5 +22,12 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    //public void deleteById(int id)
+    /*
+    Добавлен метод deleteById в класс UserService. Этот метод принимает
+    id пользователя в качестве параметра и вызывает соответствующий метод
+    deleteById из UserRepository.
+     */
+    public void deleteById(int id) {
+        userRepository.deleteById(id);
+    }
 }

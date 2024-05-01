@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.gb.example3_sem3.domain.User;
 import ru.gb.example3_sem3.services.DataProcessingService;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,9 +32,22 @@ public class TaskController {
         return service.sortUsersByAge(service.getRepository().getUsers());
     }
 
+    /**
+     * TODO: 3. В TaskController добавить обработчики filterUsersByAge() и calculateAverageAge
+     */
+
     //метод filterUsersByAge
     //Подсказка  @GetMapping("/filter/{age}")
+    @GetMapping("/filter/{age}")
+    // В методе filterUsersByAge параметр age получать через аннотацию @PathVariable
+    public List<User> filterUsersByAge(@PathVariable int age) {
+        return service.filterUsersByAge(service.getRepository().getUsers(), age);
+    }
 
     //метод calculateAverageAge
     //Подсказка  @GetMapping("/calc")
+    @GetMapping("/calc")
+    public double calculateAverageAge() {
+        return service.calculateAverageAge(service.getRepository().getUsers());
+    }
 }

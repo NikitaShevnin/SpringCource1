@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registration Form</title>
+    <style>
+        h1 {
+            color: #006699;
+        }
+
+        form {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<h1>Registration Form</h1>
+<form th:action="@{/register}" th:object="${registrationForm}" method="post">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" th:field="*{name}"/>
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" th:field="*{email}"/>
+    </div>
+    <div>
+        <button type="submit">Register</button>
+    </div>
+</form>
+</body>
+</html>

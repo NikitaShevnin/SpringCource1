@@ -1,0 +1,13 @@
+server:
+  port: 7551
+spring:
+  datasource:
+    url: jdbc:h2:file:./mydb
+    username: nick
+    password: pass1234
+    driverClassName: org.h2.Driver
+  jpa:
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always

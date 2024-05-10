@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Заметки</title>
+    <!-- Здесь могут быть ссылки на CSS-файлы -->
+</head>
+<body>
+<h1>Заметки</h1>
+
+<h2>Список заметок</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Название</th>
+        <th>Содержимое</th>
+        <th>Дата создания</th>
+    </tr>
+    <tr th:each="note : ${notes}">
+        <td th:text="${note.id}"></td>
+        <td th:text="${note.title}"></td>
+        <td th:text="${note.content}"></td>
+        <td th:text="${#dates.format(note.createdAt, 'dd.MM.yyyy HH:mm')}"></td>
+    </tr>
+</table>
+
+<h2>Добавить новую заметку</h2>
+<form th:action="@{/notes}" th:object="${newNote}" method="post">
+    <label for="title">Название:</label>
+    <input type="text" id="title" th:field="*{title}" required>
+    <br>
+    <label for="content">Содержимое:</label>
+    <textarea id="content" th:field="*{content}" rows="4" required></textarea>
+    <br>
+    <input type="submit" value="Добавить">
+</form>
+</body>
+</html>
